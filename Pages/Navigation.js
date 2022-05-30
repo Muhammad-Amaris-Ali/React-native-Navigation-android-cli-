@@ -11,6 +11,7 @@ import Home from './Home';
 import Details from './Details';
 import Notifications from './Notifications';
 import Settings from './Settings';
+import DrawerContent from './DrawerContent';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +23,7 @@ const Navigation = () => {
   const MyTabs =() => {
     return (
       
-        <Tab.Navigator
+        <Tab.Navigator screenOptions={{headerShown:false}}
           initialRouteName="Home"
           activeColor="#e91e63"
           barStyle={{ backgroundColor: "white" }}
@@ -51,17 +52,18 @@ const Navigation = () => {
     )}
   const DrawerHome = () => {
       return (
-   <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={MyTabs} />
+   <Drawer.Navigator drawerContent={props=><DrawerContent{...props}/>} screenOptions={{headerShown:false}} initialRouteName="Home">
+   
+          <Drawer.Screen  name="Home" component={MyTabs} />
           <Drawer.Screen name="Notifications" component={Notifications} />
         </Drawer.Navigator>
       )}
   
 
   return (  
-  <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={DrawerHome} 
+  <NavigationContainer >
+      <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen  name="Home" component={DrawerHome} 
  />
         <Stack.Screen name="Details" component={Details} />
       </Stack.Navigator>

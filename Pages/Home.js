@@ -12,6 +12,8 @@ const Home = ({ navigation }) => {
         onPress={() => navigation.navigate('Details')}
       />
 
+      
+
     </View>
   )
 }
