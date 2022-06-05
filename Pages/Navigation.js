@@ -48,7 +48,7 @@ const Navigation = () => {
     );
   }
   
-  const MyTabs =() => {
+  const MyTabs =({navigation}) => {
     return (
         <>
         
@@ -95,7 +95,7 @@ const Navigation = () => {
           />
         </Tab.Navigator></>
     )}
-  const DrawerHome = () => {
+  const DrawerHome = ({navigation}) => {
       return (
    <Drawer.Navigator drawerContent={props=><DrawerContent{...props}/>} screenOptions={{headerShown:false}} initialRouteName="Home">
           <Drawer.Screen  name="Settings" component={MyTabs} />
